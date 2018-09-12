@@ -32,6 +32,8 @@ Horn.readJson = () => {
       })
     })
     .then(Horn.loadHorn)
+    .then(readKeyword)
+    .then(setSelector)
 }
 
 Horn.loadHorn = () => {
@@ -40,4 +42,33 @@ Horn.loadHorn = () => {
 
 $(() => Horn.readJson());
 
-// Somehwhere in this area we will plce our keyword selector for the filter dropdown //
+// Somehwhere in this area we will place our keyword selector for the filter dropdown //
+const uniqueKeywords = [];
+
+const readKeyword = function () {
+  let allKeywords = [];
+  for (let i = 0; i < Horn.allHorns.length; i++) {
+    allKeywords.push(Horn.allHorns[i].keyword);
+  }
+  $.each(allKeywords, function(i, el) {
+      if($.inArray(el, uniqueKeywords) === -1) uniqueKeywords.push(el);
+  })
+}
+
+// append each keyword to <select> as an <option> //
+const setSelector = () => {
+  uniqueKeywords.forEach(instance => {
+    $('select').append(`<option value=${instance}>${instance}</option>`);
+  })
+}
+
+
+// pull out duplicates //
+// var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+// var uniqueNames = [];
+// $.each(names, function(i, el){
+//     if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+// });
+
+// show and tell //
+
