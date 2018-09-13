@@ -9,6 +9,7 @@ function Horn(hornObject) {
   this.horns = hornObject.horns;
 }
 Horn.allHorns = [];
+Horn.filterHorns = [];
 
 Horn.prototype.render = function () {
   $('main').append('<div class="clone"></div>');
@@ -39,6 +40,7 @@ Horn.readJson = () => {
 
 Horn.loadHorn = () => {
   Horn.allHorns.forEach(instance => instance.render());
+  // Horn.filterHorns.forEach(instance => instance.render());
 }
 
 $(() => Horn.readJson());
@@ -64,9 +66,17 @@ const setSelector = () => {
 }
 
 // show and tell //
-// $('select').on('change', function() {
-//   $('#photo-template')
-//     .siblings()
-//     .remove();
-
-// })
+$('select').on('change', function () {
+  if (event.target.value !== 'default') {
+    Horn.allHorns.forEach (instance => {
+      $(`div.${instance.keyword}`).hide();
+      if (instance.keyword === event.target.value) {
+        $(`div.${instance.keyword}`).show();
+      }
+    })
+  } else {
+    Horn.allHorns.forEach (instance => {
+      $(`div.${instance.keyword}`).show();
+    })
+  }
+})
