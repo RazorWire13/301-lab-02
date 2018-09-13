@@ -1,18 +1,63 @@
 html {
-    background: lightsteelblue;
+    background: ivory;
 }
 
 * {
     outline: gold dashed;
 }
 
+body {
+    width: 960px;
+    margin: auto;
+}
+
+header {
+    height: 150px;
+}
+footer {
+    height: 50px;
+}
+
+h1 {
+    font-family: 'Eczar', serif;
+    font-size: 52pt;
+    margin: 2%;
+    text-align: center;
+}
+
+select {
+    display: block;
+    margin: auto;
+    font-size: 16pt;
+}
+
 img {
-    max-width: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
+    max-width: 250px;
 }
 
 h2 {
+    font-family: 'Eczar', serif;
     font-size: 16pt;
+    height: 30px;
+    max-width: 250px;}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    height: 30px;
+    max-width: 250px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    max-width: 250px;
 }

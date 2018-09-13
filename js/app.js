@@ -12,18 +12,14 @@ Horn.allHorns = [];
 Horn.filterHorns = [];
 
 Horn.prototype.render = function () {
-  $('main').append('<div class="clone"></div>');
-  const $hornClone = $('div[class="clone"]');
+  // 1. get html from template
+  const $source = $('#horn-template').html();
 
-  const $hornHtml = $('#photo-template').html();
+  // 2. compile the source with h-bars
+  const compiledSource = Handlebars.compile( $source );
 
-  $hornClone.html($hornHtml);
-
-  $hornClone.find('h2').text(this.title);
-  $hornClone.find('img').attr('src', this.image_url);
-  $hornClone.find('p').text(this.description);
-  $hornClone.removeClass('clone');
-  $hornClone.addClass(this.keyword);
+  // 3. return the html from the compile method
+  return compiledSource(this);
 }
 
 Horn.readJson = () => {
@@ -39,8 +35,7 @@ Horn.readJson = () => {
 }
 
 Horn.loadHorn = () => {
-  Horn.allHorns.forEach(instance => instance.render());
-  // Horn.filterHorns.forEach(instance => instance.render());
+  Horn.allHorns.forEach(instance => $('#horn-main').append(instance.render() ));
 }
 
 $(() => Horn.readJson());
