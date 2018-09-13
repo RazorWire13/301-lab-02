@@ -1,3 +1,4 @@
+
 'use strict'
 
 function Horn(hornObject) {
@@ -51,7 +52,7 @@ const readKeyword = function () {
     allKeywords.push(Horn.allHorns[i].keyword);
   }
   $.each(allKeywords, function(i, el) {
-      if($.inArray(el, uniqueKeywords) === -1) uniqueKeywords.push(el);
+    if($.inArray(el, uniqueKeywords) === -1) uniqueKeywords.push(el);
   })
 }
 
@@ -62,13 +63,10 @@ const setSelector = () => {
   })
 }
 
-
-// pull out duplicates //
-// var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
-// var uniqueNames = [];
-// $.each(names, function(i, el){
-//     if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-// });
-
 // show and tell //
+// $('select').on('change', function() {
+//   $('#photo-template')
+//     .siblings()
+//     .remove();
 
+// })

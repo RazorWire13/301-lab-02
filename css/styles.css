@@ -1,0 +1,14 @@
+html {
+    background: lightsteelblue;
+}
+
+* {
+    outline: gold dashed;
+}
+
+img {
+    max-width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+}
