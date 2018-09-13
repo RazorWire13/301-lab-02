@@ -12,3 +12,7 @@ img {
     flex-wrap: wrap;
     flex-flow: row wrap;
 }
+
+h2 {
+    font-size: 16pt;
+}
