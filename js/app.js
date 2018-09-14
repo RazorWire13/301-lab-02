@@ -8,6 +8,7 @@ function Horn(hornObject) {
   this.keyword = hornObject.keyword;
   this.horns = hornObject.horns;
 }
+const page = $('h6').attr('id');
 Horn.allHorns = [];
 Horn.filterHorns = [];
 
@@ -23,7 +24,7 @@ Horn.prototype.render = function () {
 }
 
 Horn.readJson = () => {
-  $.get('data/page-1.json', 'json')
+  $.get(`data/page-${page}.json`, 'json')
     .then(data => {
       data.forEach(instance => {
         Horn.allHorns.push(new Horn(instance));
@@ -75,3 +76,10 @@ $('select').on('change', function () {
     })
   }
 })
+
+//Sorting functions
+// $('button').on('submit', function () {
+//   if (event.target.id === 'numerical') {
+
+//   }
+// })
