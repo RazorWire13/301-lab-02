@@ -2,9 +2,9 @@ html {
     background: ivory;
 }
 
-* {
+/* * {
     outline: gold dashed;
-}
+} */
 
 body {
     width: 960px;
@@ -29,35 +29,58 @@ select {
     display: block;
     margin: auto;
     font-size: 16pt;
+    margin-bottom: 10px;
 }
 
 img {
-    max-width: 250px;
+    width: 300px;
+    max-height: 300px;
+    z-index: 1;
 }
 
 h2 {
     font-family: 'Eczar', serif;
-    font-size: 16pt;
+    font-size: 18pt;
     height: 30px;
-    max-width: 250px;}
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 1;
+
+}
 
 p {
     font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14pt;
     height: 30px;
-    max-width: 250px;
+    width: 300px;
+    z-index: 1;
+
 }
 
-div {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-flow: column wrap;
+#horn-main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 320px 320px 320px;
 }
 
-.parent {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-flow: column wrap;
-    max-width: 250px;
+ .parent {
+    width: 300px;
+    justify-self: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+a {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 18pt;
+    margin-left: 26%;
+    margin-bottom: 10px;
+}
+
+button {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14pt;
+margin: 10px 0 10px 22%;
+border-radius: 5px;
 }
