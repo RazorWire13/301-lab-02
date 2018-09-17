@@ -78,8 +78,47 @@ $('select').on('change', function () {
 })
 
 //Sorting functions
-// $('button').on('submit', function () {
-//   if (event.target.id === 'numerical') {
-
-//   }
-// })
+$('button').on('click', function () {
+  console.log('clicked!');
+  let hornOrder = [];
+  let i = 101;
+  if (event.target.id === 'hornnumber') {
+    Horn.allHorns.forEach (instance => {
+      while (i>0) {
+        if (instance.horns === i) {
+          hornOrder.push(instance)
+          i++;
+        } else {
+          i--;
+        }
+      }
+      while ($.get('#horn-template').firstChild) {
+        $.get('#horn-template').removeChild($.get('#horn-template').firstChild);
+        (event.target.id === 'hornnumber')
+      }
+      Horn.allHorns = hornOrder;
+      console.log(hornOrder);
+      $(() => Horn.readJson());
+    })
+  } else if (event.target.id === 'alphabet') {
+    let hornAlpha = [];
+    Horn.allHorns.forEach (instance => {
+      hornAlpha.push(instance.title);
+    })
+    let sortedHorns = s ort.hornAlpha();
+    sortedHorns.forEach (instance => {
+      Horn.allHorns.forEach (horn => {
+        if (horn.title === instance) {
+          hornOrder.push(instance);
+        }
+      })
+    })
+    while ($.get('#horn-template').firstChild) {
+      $.get('#horn-template').removeChild($.get('#horn-template').firstChild);
+      (event.target.id === 'alphabet')
+    }
+    Horn.allHorns = hornOrder;
+    console.log(hornOrder);
+    $(() => Horn.readJson());
+  }
+});
