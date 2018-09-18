@@ -105,7 +105,7 @@ $('button').on('click', function () {
     Horn.allHorns.forEach (instance => {
       hornAlpha.push(instance.title);
     })
-    let sortedHorns = s ort.hornAlpha();
+    let sortedHorns = sort.hornAlpha();
     sortedHorns.forEach (instance => {
       Horn.allHorns.forEach (horn => {
         if (horn.title === instance) {
